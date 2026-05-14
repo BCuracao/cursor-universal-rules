@@ -1,0 +1,28 @@
+---
+name: code-standards
+description: DRY, SOLID, early exits; short functions; modularize when over limit
+globs: "*"
+---
+
+# Code standards
+
+## Non-negotiables
+
+- **DRY:** No copy-pasted logic; extract shared helpers or types.
+- **SOLID:** Single responsibility per module; depend on abstractions where it reduces coupling; keep interfaces small.
+- **Early exits:** Guard clauses first; reduce nesting; happy path last.
+
+## Function size
+
+- **Hard cap signal:** If a function exceeds **~20 lines** (excluding blank/JSDoc), stop and refactor: extract pure helpers, split validation vs orchestration, or introduce a small private method/class.
+- Prefer many small named units over one long linear block.
+
+## Patterns
+
+```text
+// Prefer: validate → return early → minimal core
+if (!ok) return handleBad();
+return doWork();
+```
+
+Do not "paper over" complexity with comments; split the code.

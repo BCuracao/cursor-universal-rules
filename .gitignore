@@ -1,40 +1,31 @@
-# macOS
+# OS
 .DS_Store
 .AppleDouble
 .LSOverride
-._*
-.Spotlight-V100
-.Trashes
-
-# Windows
 Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
 
-# Linux
-*~
-.directory
-
-# Editor / IDE
+# Editors / IDEs
+.idea/
+.vscode/
 *.swp
 *.swo
-*.swn
+*~
+
+# Temp / cache
 *.tmp
-*.bak
-*.orig
-
-# Logs
+*.temp
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.cache/
+tmp/
+temp/
 
-# Environment and secrets (if templates are copied into app repos)
+# Env & secrets (never commit)
 .env
 .env.*
 !.env.example
 
-# Optional local tooling
-.idea/
-*.local
+# Node / build (if consumers add tooling here)
+node_modules/
+dist/
+build/
+coverage/

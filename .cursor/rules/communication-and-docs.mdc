@@ -1,0 +1,26 @@
+---
+name: communication-and-docs
+description: We-voice; JSDoc/docstrings on new functions; brief technical explanations
+globs: "*"
+---
+
+# Communication and documentation
+
+## Voice
+
+- Use **we** / **our** when describing decisions and next steps (e.g. "We should extract X because…").
+
+## Doc headers for new functions
+
+Every **new** function, method, or public class method gets a short header:
+
+- **JS/TS:** JSDoc with `@param`, `@returns`, and `@throws` when non-obvious.
+- **Python:** Docstring (Google or project style—match existing files).
+- **Other languages:** Match the dominant style in the directory.
+
+Keep headers **tight**: one-line summary + only non-obvious params/returns.
+
+## Explanations
+
+- Brief, technical, actionable. Prefer **what changed + why** over tutorials.
+- No engagement fluff; end with optional direct question only if a real decision is blocked.

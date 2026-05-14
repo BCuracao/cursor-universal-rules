@@ -1,0 +1,28 @@
+---
+name: git-and-commits
+description: Conventional Commits; offer copy-paste commit after functional work
+globs: "*"
+---
+
+# Git and commits
+
+## Format
+
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` new behavior
+- `fix:` bug fix
+- `chore:` tooling, deps, housekeeping
+- `docs:` documentation only
+- `test:` tests only
+- `refactor:` behavior-preserving restructure
+
+Optional scope: `feat(api): add pagination`.
+
+## Agent behavior
+
+- After completing a **functional task** (feature, fix, or coherent chore batch), **offer one suggested commit command** with message already filled, e.g.  
+  `git add path1 path2 && git commit -m "fix(auth): handle expired refresh tokens"`
+- Keep commits **atomic**: one intent per commit when practical.
+
+Do not rewrite unrelated history or force-push unless the user explicitly requests it.

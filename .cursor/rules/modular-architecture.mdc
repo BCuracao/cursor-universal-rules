@@ -1,0 +1,23 @@
+---
+name: modular-architecture
+description: Keep files ~250 lines; propose decomposition before sprawl
+globs: "*"
+---
+
+# Modular architecture
+
+## File size
+
+- **Target:** ~**250 lines** per file (order-of-magnitude, language-dependent).
+- **If exceeded:** Pause feature work in that file; propose a **decomposition strategy** before growing further.
+
+## Decomposition checklist
+
+- Extract domain logic vs IO vs wiring (adapters).
+- Colocate tests next to module or mirror `src/` → `tests/` per project norm.
+- Name new modules by **behavior**, not by layer buzzwords alone (`user-auth-service` beats `utils2`).
+
+## Agent behavior
+
+- Prefer **one PR-sized slice**: introduce new file(s), move code, keep public API stable when possible.
+- Avoid drive-by refactors outside the split.

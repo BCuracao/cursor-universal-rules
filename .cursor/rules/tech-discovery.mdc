@@ -1,0 +1,17 @@
+---
+name: tech-discovery
+description: Read dependency manifests before imports; pin behavior to actual versions
+globs: "*"
+---
+
+# Tech discovery (mandatory)
+
+Before adding or changing imports, APIs, or build flags:
+
+1. **Locate the manifest** for the stack in this repo, e.g. `package.json`, `pnpm-lock.yaml` / `yarn.lock`, `pom.xml`, `build.gradle(.kts)`, `go.mod`, `requirements.txt` / `pyproject.toml`, `Cargo.toml`, `Gemfile`, etc.
+2. **Confirm versions and packages** that are actually installed—not assumed from memory.
+3. **Align code** with what the tree uses (import paths, feature flags, breaking changes for that major version).
+
+If no manifest exists for a proposed dependency, treat adding one as a deliberate product decision: state why, minimal version, and impact.
+
+Skip this only when the change is manifest-agnostic (pure local refactor with zero dependency surface change).

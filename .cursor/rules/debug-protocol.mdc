@@ -1,0 +1,27 @@
+---
+name: debug-protocol
+description: Hypothesis → evidence → fix; no blind guessing
+globs: "*"
+---
+
+# Debug protocol
+
+When an error, flake, or wrong behavior appears:
+
+## 1. Hypothesis
+
+State **one primary hypothesis** in one sentence (what we think is broken and why).
+
+## 2. Evidence
+
+Cite **concrete evidence** from the run: stack trace lines, failing test name, log snippet, repro command, file:line, config value. If evidence is missing, **gather it first** (read code, rerun with verbosity, add minimal logging)—do not speculate in bulk.
+
+## 3. Fix
+
+Propose a **minimal fix** mapped to the evidence. If disproven, **revise hypothesis**—do not stack unrelated changes.
+
+## Forbidden
+
+- Random retries without changed conditions.
+- "Maybe it's X, Y, or Z" without a ranked path to falsify each.
+- Large refactors while debugging unless the evidence points to structural debt as root cause.

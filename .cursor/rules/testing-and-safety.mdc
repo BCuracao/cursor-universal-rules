@@ -1,0 +1,22 @@
+---
+name: testing-and-safety
+description: TDD bias; no secrets in code; new logic needs unit tests
+globs: "*"
+---
+
+# Testing and safety
+
+## TDD bias
+
+- Prefer **red → green → refactor** for non-trivial logic: failing test reproduces the bug or locks new behavior, then minimal implementation, then cleanup.
+- For tiny edits (typo, comment), tests optional; for **new logic paths**, add **basic unit coverage** (happy path + one edge/failure).
+
+## Secrets
+
+- **Never** hardcode API keys, tokens, passwords, private URLs with credentials, or `.env` values in source.
+- Use env vars / secret manager patterns already used in the repo; add `.env.example` keys without values when introducing new config.
+
+## Safety bar
+
+- New behavior should be **observable** via test or scripted check where the project already supports it.
+- If test harness is missing, add the **smallest** harness slice needed—not a framework migration.
