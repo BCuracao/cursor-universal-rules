@@ -1,21 +1,31 @@
 # Project journal
 
-Structured log for decisions, debt, and follow-ups. Append newest entries at the top.
+We capture **what we finished**, **debt or learnings**, and **next steps**. The agent should **offer** to append after significant milestones (unless we asked for silent updates).
+
+Append newest entries at the top.
 
 ---
 
-## Template (copy per entry)
+## Structured template (per entry)
 
-### [Date]
+### [YYYY-MM-DD]
 
 **Action:**  
-(What we did: scope, files, outcome.)
+What we did: scope, outcome.
 
 **Technical debt / learnings:**  
-(What we deferred, gotchas, trade-offs.)
+Deferred work, gotchas, trade-offs.
 
 **Next steps:**  
-(Concrete follow-ups, owners if any, order of work.)
+Concrete follow-ups and order of work.
+
+---
+
+## One-line row (optional compact format)
+
+```text
+[YYYY-MM-DD] - [Task completed] - [Current state / technical debt] - [Next steps]
+```
 
 ---
 

@@ -16,6 +16,12 @@ globs: "*"
 - **Never** hardcode API keys, tokens, passwords, private URLs with credentials, or `.env` values in source.
 - Use env vars / secret manager patterns already used in the repo; add `.env.example` keys without values when introducing new config.
 
+## Performance and dependencies
+
+- Prefer **clear algorithms first**; micro-optimize only with evidence (profiles, slow tests, SLAs).
+- Avoid **accidental O(n²)** (repeated scans, nested loops on large collections) when linear or hash-based structures are obvious.
+- After edits, **verify imports resolve**; prefer **existing** dependencies before adding packages (justify size, maintenance, license).
+
 ## Safety bar
 
 - New behavior should be **observable** via test or scripted check where the project already supports it.
