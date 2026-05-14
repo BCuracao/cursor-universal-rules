@@ -1,12 +1,10 @@
 # Project journal
 
-We capture **what we finished**, **debt or learnings**, and **next steps**. The agent should **offer** to append after significant milestones (unless we asked for silent updates).
-
-Append newest entries at the top.
+Append **newest entries first**. Keep entries short and factual.
 
 ---
 
-## Structured template (per entry)
+## Structured template (copy per entry)
 
 ### [YYYY-MM-DD]
 
@@ -21,7 +19,7 @@ Concrete follow-ups and order of work.
 
 ---
 
-## One-line row (optional compact format)
+## One-line row (optional)
 
 ```text
 [YYYY-MM-DD] - [Task completed] - [Current state / technical debt] - [Next steps]
@@ -31,10 +29,4 @@ Concrete follow-ups and order of work.
 
 ## Entries
 
-### [YYYY-MM-DD]
-
-**Action:**  
-
-**Technical debt / learnings:**  
-
-**Next steps:**  
+_Add shipped work here using the templates above._

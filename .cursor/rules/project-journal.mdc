@@ -2,7 +2,6 @@
 name: project-journal
 description: After significant milestones, offer to append a dated row to PROJECT_JOURNAL.md (task, state/debt, next steps).
 globs: "*"
-alwaysApply: true
 ---
 
 # Project journal discipline
