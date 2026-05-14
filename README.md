@@ -2,6 +2,12 @@
 
 Gold-standard Cursor agent rules for high-performance, efficient, and safe agentic coding. Copy into any project to align the agent on architecture, discovery, testing, and communication.
 
+We version and share this template from **[BCuracao/cursor-universal-rules](https://github.com/BCuracao/cursor-universal-rules)** on GitHub.
+
+```bash
+git clone https://github.com/BCuracao/cursor-universal-rules.git
+```
+
 ## How to use
 
 Copy the `.cursor/rules/` folder and the `.cursorrules` file into your project root. If the project already has `.cursor/`, merge `rules/` without dropping existing rules.
