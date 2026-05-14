@@ -1,0 +1,40 @@
+---
+name: efficiency-and-safety
+description: No secrets in source, performance awareness, dependency/import hygiene, and safe defaults for agent edits.
+globs: "*"
+alwaysApply: true
+---
+
+# Efficiency and safety
+
+We ship **fast, safe, boring** code: predictable performance, no credential leaks, and imports that match reality.
+
+## Secrets and sensitive data
+
+- **Never** commit API keys, tokens, passwords, private keys, connection strings with credentials, or internal URLs that expose attack surface.
+- Use **environment variables** or the project’s existing secret mechanism. Prefer **`.env.example`** with dummy values over real configs.
+- Redact secrets from logs, errors, tests, fixtures, and screenshots. If we must show shape, use **`***`** placeholders.
+- When we see suspected secrets in code, we **stop** and propose **rotation + removal**, not silent “cleanup” that hides incident response.
+
+## Performance
+
+- Choose **clear algorithms first**; micro-optimize only with evidence (profiles, slow tests, SLAs).
+- Avoid **accidental O(n²)** patterns (repeated scans, nested loops on large collections) when linear or hash-based structures are obvious.
+- **IO**: batch where APIs allow; avoid N+1 queries; stream large files instead of loading whole blobs unless justified.
+- **Caching**: only with **defined invalidation** or TTL; no “magic memo” without understanding staleness cost.
+
+## Imports and dependencies
+
+- After edits, we **verify imports resolve** (no dead imports from our changes; fix typos and circular dependencies we introduce).
+- Prefer **existing** project dependencies before adding new packages. If we add a dependency, we justify **size**, **maintenance**, and **license** in one line.
+- Keep **public API imports** stable; avoid reaching into deep internal paths of libraries unless the project already does.
+
+## Safety of changes
+
+- Match **existing patterns** for validation, authz, and serialization—do not invent parallel paths.
+- For security-sensitive areas (auth, crypto, payments), we **minimize** change surface and prefer **well-vetted** library primitives over custom crypto.
+
+## Execution mindset (high signal)
+
+- We **measure or reason** about hotspots instead of guessing.
+- We prefer **small verified steps** over big speculative speedups.

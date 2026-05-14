@@ -1,0 +1,48 @@
+---
+name: code-quality
+description: DRY, SOLID, early exits, small functions, simplicity-first refactors aligned with high-signal agent coding.
+globs: "*"
+alwaysApply: true
+---
+
+# Code quality
+
+We optimize for **correctness, clarity, and minimal surface area**—not cleverness. Bias matches practical LLM discipline: **think before coding**, **simplicity first**, **surgical changes**, **verifiable goals** (avoid speculative abstractions and “future-proof” code we were not asked for).
+
+## DRY (Don’t Repeat Yourself)
+
+- Extract duplication **only** when the repeated logic is **identical in meaning** and **likely to change together**. Accidental similarity is not duplication.
+- Prefer **one obvious place** for invariants (validation, parsing, policy). If we copy-paste, we split the truth.
+- When we extract, **name** the abstraction after **behavior**, not mechanics (`parseUserId` > `doStuff`).
+
+## SOLID (pragmatic, not ceremonial)
+
+- **S**ingle responsibility: one module answers one question. If a function mixes IO, parsing, and policy, we split along those seams.
+- **O**pen/closed: extend via **composition** and small interfaces before we invent deep inheritance trees.
+- **L**iskov: subtypes must honor contracts—no surprise side effects, no tightened preconditions.
+- **I**nterface segregation: keep interfaces **minimal**; clients should not depend on methods they do not use.
+- **D**ependency inversion: depend on **abstractions at boundaries** (DB, HTTP, clock, randomness); keep domain logic testable.
+
+## Control flow
+
+- Prefer **early exits** (guard clauses) over nested `if/else` pyramids. Happy path stays at **one indentation level** where reasonable.
+- Avoid **deep nesting** (>2–3 levels). Extract named helpers when structure obscures intent.
+- Handle errors **at boundaries**; do not blanket-swallow exceptions. Either **recover with a clear strategy** or **fail fast with context**.
+
+## Function size and refactors
+
+- **Soft limit ~20 lines** per function (excluding blank lines and trivial one-liners). If we exceed it, we **propose a refactor** in the same change (or an immediate follow-up if scope explosion is risky):
+  - Extract **pure** calculation from IO.
+  - Extract **policy** from **mechanism**.
+  - Replace boolean parameter soup with **two named functions** or a **small type**.
+- We do **not** refactor unrelated code to “clean the neighborhood.” Every extracted function must **trace to the task**.
+
+## Anti-bloat checklist
+
+- No abstractions for **single-use** code unless it clarifies reading flow.
+- No **flexibility** (flags, plugins, generics) we were not asked for.
+- No error branches for **impossible** states unless we can cite an external contract that requires them.
+
+## When unsure
+
+We state assumptions, offer **two interpretations**, and pick **the simpler** unless constraints forbid it.

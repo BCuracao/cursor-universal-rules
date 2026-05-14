@@ -1,0 +1,36 @@
+---
+name: project-journal
+description: After significant milestones, offer to append a dated row to PROJECT_JOURNAL.md (task, state/debt, next steps).
+globs: "*"
+alwaysApply: true
+---
+
+# Project journal discipline
+
+If `PROJECT_JOURNAL.md` exists in the project root, we treat it as the **running narrative** of shipped work and remaining risk.
+
+## After every significant milestone
+
+We **offer** to update the journal (we do not silently append without confirmation unless the user asked for automatic logging). A milestone includes, for example:
+
+- Feature or bugfix **merged-ready** with tests/verification
+- Non-trivial **refactor** completed safely
+- **Release** or deployment step executed
+- Major **discovery** (security issue, perf regression) resolved or documented
+
+## What to append
+
+Use the project template row format:
+
+`[YYYY-MM-DD] - [Task completed] - [Current state / technical debt] - [Next steps]`
+
+Guidelines:
+
+- **Task completed**: crisp, user-facing language (not file lists).
+- **Current state / technical debt**: known sharp edges, migrations pending, flaky tests, TODOs with impact.
+- **Next steps**: the **next** concrete actions, owners implied as “we”.
+
+## Hygiene
+
+- Keep entries **short**; we append, we do not rewrite history.
+- If `PROJECT_JOURNAL.md` is missing and the team wants tracking, we suggest copying the template from the **cursor-universal-rules** baseline.

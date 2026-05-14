@@ -1,0 +1,46 @@
+---
+name: git-workflow
+description: Atomic commits, Conventional Commits (feat/fix/...), scoped messages, and review-friendly history.
+globs: "*"
+alwaysApply: true
+---
+
+# Git workflow
+
+We keep history **readable**, **bisectable**, and **review-friendly**. Each commit should tell a **single story**.
+
+## Atomic commits
+
+- **One logical change** per commit. If the message needs “and”, we probably need two commits.
+- Split **refactor** from **behavior change** when feasible (easier review and safer reverts).
+- If we discover unrelated issues, we **note** them for follow-up instead of bundling unless explicitly requested.
+
+## Conventional Commits
+
+Use **Conventional Commits** (`type(scope): summary`):
+
+- **`feat:`** — new user-visible capability
+- **`fix:`** — bug fix or incorrect behavior correction
+- **`docs:`** — documentation-only
+- **`test:`** — tests only
+- **`refactor:`** — internal change without intended behavior change
+- **`perf:`** — performance improvement
+- **`chore:`** — tooling, CI, formatting, deps without product logic change
+- **`ci:`** — pipeline/workflow changes
+
+Examples:
+
+- `feat(auth): add refresh token rotation`
+- `fix(api): return 404 when resource missing`
+- `test(checkout): cover discount edge cases`
+
+## Message rules
+
+- **Imperative mood** in the subject (“add”, not “added” or “adds”).
+- **≤72 chars** subject line; wrap body at ~72 chars if we include details.
+- Body explains **motivation**, **constraints**, or **breaking changes** when non-obvious.
+
+## Hygiene
+
+- No secrets in commits. If leaked, we **rotate** credentials and **purge** history per org policy—never “fix” with a follow-up secret.
+- Avoid noisy churn: mass reformat only when **agreed** or isolated in its own commit.

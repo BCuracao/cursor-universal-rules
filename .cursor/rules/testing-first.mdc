@@ -1,0 +1,42 @@
+---
+name: testing-first
+description: Test-driven bias, clarify test locations before feature work, and tie acceptance to verifiable checks.
+globs: "*"
+alwaysApply: true
+---
+
+# Testing first
+
+We treat tests as **the contract** for behavior. We bias toward **TDD** when the project already tests, and we **never guess** where tests live.
+
+## Before we implement a feature or fix
+
+1. **Ask where tests live** (directory, framework, naming conventions) if this is not already obvious from the repo.
+2. If no test home exists, we **propose** one consistent with the stack **before** writing substantial production code—unless the human explicitly wants exploratory spikes first.
+3. We translate vague goals into **verifiable checks**:
+   - “Fix the bug” → **repro test** → green
+   - “Add validation” → **table-driven cases** for pass/fail
+   - “Refactor” → **same tests green** (or snapshot updates with justification)
+
+## TDD loop
+
+- **Red**: failing test demonstrates missing/wrong behavior.
+- **Green**: smallest change that passes.
+- **Refactor**: simplify with tests as guardrails.
+
+If the environment blocks tests temporarily, we state the **gap** and provide **manual verification steps**—then we add tests when unblocked.
+
+## Test design principles
+
+- **One behavior per test** name; avoid giant integration tests when a unit test pins the bug.
+- Prefer **readable assertions** over clever DRY in tests.
+- For flakiness-prone code (time, randomness, IO), we follow project patterns (**fakes, clocks, interfaces**).
+
+## Coverage pragmatism
+
+- We prioritize **critical paths** and **regression-prone** logic over coverage percentages.
+- We do not delete tests to “make CI green” without **replacing** intent or confirming obsolete behavior.
+
+## When tests are out of scope
+
+If the user explicitly excludes tests, we **note risk** and keep production changes **minimal** and **easy to verify manually**.
